@@ -1,0 +1,27 @@
+{
+  # "no-lonely-if": 1
+  "rules": {
+        "no-useless-return": "off",
+        "no-else-return": "off",
+        complexity: ["error", 53],
+        max-depth: ["error", 6],
+        max-nested-callbacks: ["error", 6],
+        no-lonely-if: "off",
+        max-params: ["error", 6],
+        no-invalid-this: "error",
+        no-await-in-loop: "off",
+        "unicorn/no-hex-escape": "off",
+        no-console: "off",
+    },
+    "overrides": [
+    {
+      "files": ["client.js", "url.js", "pressure.js", "plot.js", "front-page.js"],
+      "rules": {
+        no-extend-native: ["error", { "exceptions": ["String"] }],
+        no-unused-vars: "off",
+        "unicorn/prefer-add-event-listener": "off",
+        camelcase: "off",
+      }
+    }
+  ]
+}

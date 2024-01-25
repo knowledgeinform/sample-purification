@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="css/sps.css">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample Purification System Software</title>
+  </head>
+  <header class="bigInfo" id="header-info-wrapper">
+    <!-- <h1 id="header-info">Sample Purification System</h1> -->
+  </header>
+  <div id="wrapper">
+    <div id="mainColumn" class="lhsdivClass frontPageClass">
+      <h1 id="header-info" class="bigInfo">Sample Purification System</h1>
+      <div id="configBlock" class="frontPageClass frontPageSubClass" style="text-align: left;">
+        <div id="lhsConfigDiv" class="lhsConfigClass">
+          <div id="modeSelectDiv" style="margin: 10px">
+            Mode:
+            <select id="modeSelect" class="dropdown dropdown-dark"
+            onChange="changeDesorbMode()">
+              <option value="0">Normal</option>
+              <option value="1">Compressed</option>
+            </select>
+          </div>
+          <div id="tubeRangeDiv" style="margin: 10px">
+            Tubes:
+            <input type="text" id="tubeRangeInput" name="Tubes:" onchange="changeTubes()">
+            </input>
+          </div>
+        </div>
+        <div id="rhsConfigDiv" class="rhsConfigClass">
+          <div id="statusDiv" style="margin: 10px">
+            Status:
+          </div>
+          <div id="timeRemainingDiv" style="margin: 10px">
+            Time Remaining:
+          </div>
+        </div>
+      </div>
+      <button class="frontButton" style="margin-top: -10px" onclick="startDesorbing()">
+        GO
+      </button>
+      <button class="frontButton"
+      style="background: radial-gradient(rgba(180,36,25,1), rgba(238,119,112,1))"
+      onclick="stopDesorbing()">
+        <img src="images/Stop.png" class="stopImg"/>
+      </button>
+      <button class="frontButton"
+      style="background: radial-gradient(rgba(41,44,51,1), rgba(65,64,64,1))"
+      onclick="goToSettings()">
+        <img src="images/Gears.png" class="gearsImg"/>
+      </button>
+    </div>
+    <div id="healthColumn" class="rhsdivClass frontPageClass" style="text-align: center;">
+      SPS Health
+      <div id="gasLevelBlock" class="frontPageClass frontPageSubClass" style="overflow: hidden;">
+        <div id="dgasDiv" class="gasDivClass">
+          D-Gas
+          <div id="dgasCylPresDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="dgasCylPresP">80 psig</p>
+            <div id="dgasCylDiv" class="gasCylClass">
+              <div id="dgasCylFillDiv" class="gasCylClass gasCylFillClass">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="o2Div" class="gasDivClass">
+          O2
+          <div id="o2CylPresDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="o2CylPresP">80 psig</p>
+            <div id="o2CylDiv" class="gasCylClass">
+              <div id="o2CylFillDiv" class="gasCylClass gasCylFillClass">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="h2Div" class="gasDivClass">
+          H2
+          <div id="h2CylPresDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="h2CylPresP">80 psig</p>
+            <div id="h2CylDiv" class="gasCylClass">
+              <div id="h2CylFillDiv" class="gasCylClass gasCylFillClass">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="n2Div" class="gasDivClass">
+          N2
+          <div id="n2CylPresDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="n2CylPresP">80 psig</p>
+            <div id="n2CylDiv" class="gasCylClass">
+              <div id="n2CylFillDiv" class="gasCylClass gasCylFillClass">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="temperatureLevelBlock" class="frontPageClass frontPageSubClass">
+        <div id="gcOvenDiv" class="gasDivClass">
+          GC-OVEN
+          <div id="gcOvenTempDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="gcOvenTempP">99 C</p>
+            <img src="images/Thermometer.png" class="thermometerImg"/>
+          </div>
+        </div>
+        <div id="oxCatDiv" class="gasDivClass">
+          Ox. Cat.
+          <div id="oxCatTempDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="oxCatTempP">99 C</p>
+            <img src="images/Thermometer.png" class="thermometerImg"/>
+          </div>
+        </div>
+        <div id="redCatDiv" class="gasDivClass">
+          Red. Cat.
+          <div id="redCatTempDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="redCatTempP">99 C</p>
+            <img src="images/Thermometer.png" class="thermometerImg"/>
+          </div>
+        </div>
+        <div id="valveBoxDiv" class="gasDivClass">
+          Valve Box
+          <div id="valveBoxTempDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="valveBoxTempP">99 C</p>
+            <img src="images/Thermometer.png" class="thermometerImg"/>
+          </div>
+        </div>
+      </div>
+      <div id="massFlowBlock" class="frontPageClass frontPageSubClass">
+        <div id="mfcADiv" class="gasDivClass">
+          A
+          <div id="mfcAFlowDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="mfcAFlowP">99 SCCM</p>
+            <img src="images/MFC.png" class="mfcImg"/>
+          </div>
+        </div>
+        <div id="mfcBDiv" class="gasDivClass">
+          B
+          <div id="mfcBFlowDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="mfcBFlowP">99 SCCM</p>
+            <img src="images/MFC.png" class="mfcImg"/>
+          </div>
+        </div>
+        <div id="mfcCDiv" class="gasDivClass">
+          C
+          <div id="mfcCFlowDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="mfcCFlowP">99 SCCM</p>
+            <img src="images/MFC.png" class="mfcImg"/>
+          </div>
+        </div>
+        <div id="mfcDDiv" class="gasDivClass">
+          D
+          <div id="mfcDFlowDiv" style="margin-top: 10px;">
+            <p class="frontPageHealth" id="mfcDFlowP">99 SCCM</p>
+            <img src="images/MFC.png" class="mfcImg"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/url.js" charset="utf-8"></script>
+  <script src="js/front-page.js" charset="utf-8"></script>
+</html>

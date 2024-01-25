@@ -1,0 +1,20 @@
+MAIN  MENU
+----------
+
+Z - Enter GASP and DESORBER serial numbers
+
+J - Test one manifold - all positions for 1 sec with power ON
+
+W - Test one manifold - user entry between positions - with power ON
+
+T - Test all positions for 1 sec with power ON
+
+D - Desorb - Single Tube
+
+C - Condition - Multi Tube in Groups - 1.5 hr cycle - No BNL
+
+B - Condition - Multi Tube in Groups - 4 min cycle - No BNL
+
+X - Desorb - Multi Tube in Groups - 2.5 min cycle - No BNL
+
+A - Auto Mode w/ BNL

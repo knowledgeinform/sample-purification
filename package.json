@@ -1,0 +1,59 @@
+{
+  "name": "sample-purification",
+  "version": "0.0.0",
+  "author": "Jonathan Jones",
+  "bin": {
+    "sample-purification": "./bin/run"
+  },
+  "bugs": "https://github.com/jonesjp1/sample-purification/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "@serialport/parser-inter-byte-timeout": "^9.0.7",
+    "express": "^4.17.1",
+    "rpio": "^2.4.2",
+    "serialport": "^9.0.7",
+    "ssh2": "^0.8.9"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "chai": "^4",
+    "chai-http": "^4.3.0",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "globby": "^10",
+    "mocha": "^5",
+    "nyc": "^14"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/jonesjp1/sample-purification",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "sample-purification",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "jonesjp1/sample-purification",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "nyc mocha --forbid-only --exit \"test/**/*.test.js\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}

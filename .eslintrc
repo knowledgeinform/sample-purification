@@ -1,0 +1,7 @@
+{
+  "extends": "oclif",
+  "rules": {
+        no-console: "off",
+        max-nested-callbacks: ["error", 16],
+    },
+}

@@ -1,0 +1,4 @@
+call,value,time,
+api/modes/1/Stop,,5
+api/valves/2/State,true,1
+api/traps/1/Fire,"",3

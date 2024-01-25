@@ -1,0 +1,4 @@
+call,value,time,
+api/valves/J2/State,true,3
+api/valves/J2/State,false,5.5
+api/modes/3/Stop,"",7

@@ -1,0 +1,12 @@
+/dev/port1 - FOUND : Relay Board 1
+/dev/port2 - FOUND : Relay Board 2
+/dev/port3 - FOUND : Relay Board 3
+/dev/port4 - FOUND : Relay Board 4
+/dev/port5 - FOUND : Power Supply
+/dev/port6 - FOUND : GASP
+/dev/port7 - NOT FOUND : Analyzer
+
+Initialization Complete
+Initial Current : 0.0
+
+Hit <ENTER> to Continue ...
